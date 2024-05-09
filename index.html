@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <title>
+        Mad Libs Story
+    </title>
+<link rel="stylesheet" href="flabbergasted.css">
+    </head>
+    <body>
+    <h1>Make Your Own Mad Libs Story!</h1>
+    <form id="myForm">
+    
+             <label for="adj">Adjective:</label></br>
+            <select id="adj" name="adj">
+            <option value="tall">Tall</option>
+            <option value="young">Young</option>
+            <option value="enthusiatic">Enthusiastic</option>
+            <option value="stupid">Stupid</option>
+            <option value="good">Good</option>
+            <option value="interesting">Interesting</option>
+            <option value="mischevious">Mischevious</option>
+            <option value="studious">Studious</option>
+            </select>
+            <p></p>
+            
+            <label for="name">Name:</label><br>
+            <input type="text" id="name" name = "name">
+            <p></p>
+            
+            <label for="weather">Weather:</label></br>
+            <input type="radio" id="sunny" name="weather" value="sunny">
+            <label for="sunny">Sunny</label><br>
+            <input type="radio" id="rainy" name="weather" value="rainy">
+            <label for="rainy">Rainy</label><br>
+            <input type="radio" id="snowy" name="weather" value="snowy">
+            <label for="snowy">Snowy</label><br>
+            <input type="radio" id="stormy" name="weather" value="stormy">
+            <label for="stormy">Stormy</label><br>
+            <input type="radio" id="cloudy" name="weather" value="cloudy">
+            <label for="cloudy">Cloudy</label><br>
+            <p></p>
+            
+            <label for="activity">Activity related to weather:</label><br>
+            <input type="text" id="activity" name = "activity">
+            <p></p>
+            
+            <label for="chore">Household chore:</label></br>
+            <select id="chore" name="chore">
+            <option value="mop the floor">Mop the floor</option>
+            <option value="clean the bathroom">Clean the bathroom</option>
+            <option value="do the dishes">Do the dishes</option>
+            <option value="clean the cat's litter box">Clean the cat's litter box</option>
+            <option value="do the laundry">Do the laundry</option>
+            <option value="take out the trash">Take out the trash</option>
+            <option value="mow the lawn">Mow the lawn</option>
+            <option value="feed the dog">Feed the dog</option>
+            </select>
+            <p></p>
+            
+            <label for="room">Room in the house:</label><br>
+            <input type="text" id="room" name = "room">
+            <p></p>
+            
+            <label for="time">Period of time:</label><br>
+            <input type="text" id="time" name = "time">
+            <p></p>
+           
+            <input type="submit" value="Submit">
+            
+        </form>
+    <!--This is where story will go between the div-->
+    <div id="formContents">
+    </div>
+        <script>
+            //Get the form element
+            var form = document.getElementById("myForm");
+            
+            //Add event listener for form submission with button
+            form.addEventListener("submit", function(event){
+                event.preventDefault();
+                
+                //Get the input value
+                var name = document.getElementById("name").value;
+                var adj = document.getElementById("adj").value;
+                var weather = document.getElementsByName("weather")
+                var activity = document.getElementById("activity").value;
+                var chore = document.getElementById("chore").value;
+                var room = document.getElementById("room").value;
+                var time = document.getElementById("time").value;
+
+                //Function to get radio button working
+                for (i = 0; i < weather.length; i++) {
+                    if (weather[i].checked)
+                    var temp = weather[i].value;
+                }
+                
+                //Get the location to place the story
+                var putStory = document.getElementById("formContents");
+                
+                //Display the story
+                putStory.innerHTML = "There once was a very " + adj + " kid named " + name + ". " + name + " was excited because it was a " + temp + " day! " + name + " loved " + temp + " days because it was the perfect time to " + activity + ". Unfortunately, " + name + "'s mom made " + name + " " + chore + ", so the " + activity + " would have to wait. " + name + " wouldn't accept this though, so when " + name + "'s mom left to the " + room + ", " + name + " didn't " + chore + ", but instead went to " + activity + ". When " + name + "'s mom found out though, she was furious. And so " + name + " was grounded for " + time + ".";
+            });
+        </script>
+    </body>
+</html>

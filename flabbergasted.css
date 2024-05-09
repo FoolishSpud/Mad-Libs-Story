@@ -1,0 +1,10 @@
+form {
+    background-image: linear-gradient(to bottom right, #FF0000, #0000FF);
+    color:yellow;
+    font-family:'Comic Sans MS';
+}
+
+body {
+    background-image: linear-gradient(to bottom right, #FFFF00, #00FFFF);
+    font-family:'Comic Sans MS';
+}
